@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Module01Exercise01"
+             x:Class="Module01Exercise01.MainPage">
+
+    <ContentPage.Resources>
+        <x:String x:Key="StaticEmail">tabual.lhizel@auf.edu.ph</x:String>
+        <x:String x:Key="DynamicEmail">lhizel.0415@gmail.com</x:String>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,15"
+            Spacing="20">
+
+            <Label Text="Welcome,"
+                   FontSize="Large"
+                   FontAttributes="Bold"/>
+
+            <Label Text="{Binding Source={x:Reference MyEntry}, Path=Text}"
+                   FontSize="Large"
+                   FontAttributes="Bold"/>
+            
+            <Label Text="{local:WelcomeMsgTime}"
+                   FontSize="Medium" 
+                   FontAttributes="Bold"/>
+
+            <Label Text="Name:" />
+            <Entry x:Name="MyEntry"
+                   Placeholder="Enter your name"
+                   Text="{Binding Text, Source{x:Reference MyEntry}}" />
+
+            <Label Text="Email:" />
+            <Entry Placeholder="Enter your email"
+                   Text="{StaticResource StaticEmail}"/>
+
+            <Label Text="Date of Birth:" />
+            <DatePicker />
+
+            <Label Text="Bio:" />
+            <Editor Placeholder="Enter your bio"/>
+
+            <Button Text="Save"
+                    Clicked="SavedChanges"
+                    HorizontalOptions="End"/>
+
+            <Label Text="User Preferences"
+                   FontAttributes="Bold"
+                   FontSize="Medium" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
