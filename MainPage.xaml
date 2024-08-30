@@ -2,11 +2,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Module01Exercise01"
-             x:Class="Module01Exercise01.MainPage">
+             x:Class="Module01Exercise01.MainPage"
+             BackgroundColor="{DynamicResource LocalBackgroundColor}">
 
     <ContentPage.Resources>
         <x:String x:Key="StaticEmail">tabual.lhizel@auf.edu.ph</x:String>
         <x:String x:Key="DynamicEmail">lhizel.0415@gmail.com</x:String>
+        <Color x:Key="LocalBackgroundColor">White</Color>
+        <Color x:Key="LocalTextColor">Black</Color>
     </ContentPage.Resources>
 
     <ScrollView>
@@ -16,38 +19,59 @@
 
             <Label Text="Welcome,"
                    FontSize="Large"
-                   FontAttributes="Bold"/>
+                   FontAttributes="Bold"
+                   TextColor="{DynamicResource LocalTextColor}" />
 
             <Label Text="{Binding Source={x:Reference MyEntry}, Path=Text}"
                    FontSize="Large"
-                   FontAttributes="Bold"/>
+                   FontAttributes="Bold"
+                   TextColor="{DynamicResource LocalTextColor}" />
             
             <Label Text="{local:WelcomeMsgTime}"
                    FontSize="Medium" 
-                   FontAttributes="Bold"/>
+                   FontAttributes="Bold"
+                   TextColor="{DynamicResource LocalTextColor}" />
 
-            <Label Text="Name:" />
+            <Label Text="Name:"
+                   TextColor="{DynamicResource LocalTextColor}" />
             <Entry x:Name="MyEntry"
                    Placeholder="Enter your name"
-                   Text="{Binding Text, Source{x:Reference MyEntry}}" />
+                   Text="{Binding Text, Source{x:Reference MyEntry}}"
+                   TextColor="{DynamicResource LocalTextColor}" />
 
-            <Label Text="Email:" />
+            <Label Text="Email:"
+                   TextColor="{DynamicResource LocalTextColor}" />
             <Entry Placeholder="Enter your email"
-                   Text="{StaticResource StaticEmail}"/>
+                   Text="{StaticResource StaticEmail}"
+                   TextColor="{DynamicResource LocalTextColor}" />
 
-            <Label Text="Date of Birth:" />
-            <DatePicker />
+            <Label Text="Date of Birth:"
+                   TextColor="{DynamicResource LocalTextColor}" />
+            <DatePicker 
+                TextColor="{DynamicResource LocalTextColor}"/>
 
-            <Label Text="Bio:" />
-            <Editor Placeholder="Enter your bio"/>
+            <Label Text="Bio:"
+                   TextColor="{DynamicResource LocalTextColor}" />
+            <Editor Placeholder="Enter your bio"
+                    TextColor="{DynamicResource LocalTextColor}" />
 
             <Button Text="Save"
                     Clicked="SavedChanges"
-                    HorizontalOptions="End"/>
+                    HorizontalOptions="End"
+                    TextColor="{DynamicResource LocalTextColor}" />
 
             <Label Text="User Preferences"
                    FontAttributes="Bold"
-                   FontSize="Medium" />
+                   FontSize="Medium"
+                   TextColor="{DynamicResource LocalTextColor}" />
+
+            <Button Text="Light Mode"
+                    Clicked="ClickedLightMode"
+                    TextColor="{DynamicResource LocalTextColor}" />
+
+            <Button Text="Dark Mode"
+                    Clicked="ClickedDarkMode"
+                    TextColor="{DynamicResource LocalTextColor}" />
         </VerticalStackLayout>
     </ScrollView>
 
